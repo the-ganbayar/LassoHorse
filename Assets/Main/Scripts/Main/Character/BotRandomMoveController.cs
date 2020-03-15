@@ -6,7 +6,6 @@ using UnityEngine;
 public class BotRandomMoveController : MB
 {
     public float velocity = 10;
-    Vector3 vel;
     void Start()
     {
         rb.NoG();

@@ -8,6 +8,13 @@ public class Character : MB
     public LeaderBoardData data;
     HWP hwp = null;
     TextMeshPro followTmp;
+    [HideInInspector]
+    public Animator animator;
+    public Lasso lasso;
+    void Awake()
+    {
+        animator = gameObject.Gc<Animator>();
+    }
     public void Init()
     {
         transform.SetParent(A.BS.transform);
