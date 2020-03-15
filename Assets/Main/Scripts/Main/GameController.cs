@@ -190,7 +190,7 @@ public class GameController : Singleton<GameController> {
 
     public void Play() {
         State = GameState.Playing;
-        A.Player.MouseButtonDown();
+        // A.Player.MouseButtonDown();
         A.CC.ShowHud();
     }
 

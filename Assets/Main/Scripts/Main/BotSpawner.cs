@@ -11,7 +11,7 @@ public class BotSpawner : Singleton<BotSpawner> {
     Bot botPf;
 
     void Awake() {
-        botPf = Resources.Load<Bot>("Main/Bot");
+        botPf = Resources.Load<Bot>("Main/BotHorse");
         characters.Add<Character>(A.FOsOT<Character>());
         CreateBots(n);
     }

@@ -33,14 +33,14 @@ public class Player : Character
 
             if (IsUp)
             {
-                isTraveling = true;
-                transform.parent = null;
-                startPos = transform.position;
+                // isTraveling = true;
+                // transform.parent = null;
+                // startPos = transform.position;
             }
 
             if (isTraveling)
             {
-                MoveTarget();
+                // MoveTarget();
             }
         }
     }
