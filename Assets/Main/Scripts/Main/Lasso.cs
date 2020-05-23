@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Lasso : MonoBehaviour
 {
-    LineRenderer renderer;
+    LineRenderer lineRenderer;
+    public float rendererDistance = 10f;
+    public Transform targetTf;
+    public bool isMoveTarget = false;
     void Start()
     {
-        renderer = gameObject.Gc<LineRenderer>();
-        renderer.positionCount += 2;
+        lineRenderer = gameObject.Gc<LineRenderer>();
+        lineRenderer.positionCount += 2;
     }
 
 
     void Update()
     {
-        renderer.SetPosition(0, transform.position);
-        renderer.SetPosition(1, -transform.up * 10f);
+        lineRenderer.SetPosition(0, V3.Z(transform.position, transform.position.z + 0.25f));
+        lineRenderer.SetPosition(1, targetTf.forward * rendererDistance + transform.position);
     }
 }

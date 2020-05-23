@@ -11,6 +11,7 @@ public class Character : MB
     [HideInInspector]
     public Animator animator;
     public Lasso lasso;
+    public Transform lassoStartTf;
     void Awake()
     {
         animator = gameObject.Gc<Animator>();

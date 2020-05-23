@@ -7,6 +7,8 @@ public class Player : Character
     Vector3 mouseNewPos, mouseDelta, mouseOldPos;
     float camZDist;
     public float velocity = 10f;
+    [HideInInspector] public bool isLasso = false;
+    bool isLassoOutScreen = false;
     void Start()
     {
         camZDist = -A.Cam.transform.position.z;
@@ -28,9 +30,29 @@ public class Player : Character
             if (IsUp)
             {
                 animator.SetBool("Run", false);
-                // isTraveling = true;
-                // transform.parent = null;
-                // startPos = transform.position;
+                isLasso = true;
+            }
+
+            if (isLasso)
+            {
+                lasso.transform.position += transform.forward * Time.deltaTime * 20f;
+                Vector3 vPort = A.Cam.WorldToScreenPoint(lasso.transform.position);
+                if (vPort.y < 0 || vPort.y > A.Cam.pixelHeight || vPort.x < 0 || vPort.x > A.Cam.pixelWidth)
+                {
+                    isLassoOutScreen = true;
+                }
+
+                if (isLassoOutScreen)
+                {
+                    if (V3.Dis(lasso.transform.position, lassoStartTf.position) > 0.5f)
+                    {
+                        lasso.transform.position = V3.Move(lasso.transform.position, lassoStartTf.position, 0.5f);
+                    }else
+                    {
+                        isLasso = false;
+                        isLassoOutScreen = false;
+                    }
+                }
             }
         }
     }

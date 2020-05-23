@@ -13,7 +13,7 @@ public class BotSpawner : Singleton<BotSpawner>
 
     void Awake()
     {
-        botPf = Resources.Load<Bot>("Main/Bot");
+        botPf = Resources.Load<Bot>("Main/BotHorse");
         characters.Add<Character>(A.FOsOT<Character>());
         CreateBots(n);
     }
@@ -27,7 +27,7 @@ public class BotSpawner : Singleton<BotSpawner>
         Vector3 rot = Vector3.zero, pos;
         for (int i = 0; i < n; i++)
         {
-            pos = V3.X(V3.O, Random.Range(-2f, 2f));
+            pos = V3.X(V3.O, Random.Range(-3f, 3f));
             Create(pos, rot);
         }
     }
